@@ -22,12 +22,10 @@ const Navbar = () => {
         px: 2,
         py: 1,
         borderBottom: '1px solid',
-        borderColor: 'divider',
         minHeight: 56,
-        bgcolor: 'background.surface',
       }}
     >
-      <Typography level="h4" sx={{ minWidth: 120, color: 'text.primary' }}>
+      <Typography level="h4" sx={{ minWidth: 120 }}>
         {pageName}
       </Typography>
       <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>

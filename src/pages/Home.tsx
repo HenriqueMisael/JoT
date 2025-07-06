@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 const Home = () => {
   const { t } = useTranslation();
   return (
-    <Box sx={{ color: 'text.primary' }}>
-      <Typography level="h2" sx={{ color: 'text.primary' }}>
+    <Box>
+      <Typography level="h2">
         {t('home.welcome')}
       </Typography>
     </Box>

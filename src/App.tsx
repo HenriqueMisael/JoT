@@ -6,7 +6,7 @@ import Navbar from './components/organisms/Navbar';
 
 function App() {
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'background.body' }}>
+    <Box sx={{ minHeight: '100vh' }}>
       <CssBaseline />
       <Navbar />
       <Box component="main" sx={{ p: 4 }}>
