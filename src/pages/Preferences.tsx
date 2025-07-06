@@ -15,29 +15,28 @@ const Preferences = () => {
   };
 
   return (
-    <Box sx={{ color: 'text.primary' }}>
-      <Typography level="h2" sx={{ color: 'text.primary', mb: 3 }}>
+    <Box>
+      <Typography level="h2" className='mb-4'>
         Preferences
       </Typography>
       
       <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
         <Box>
-          <Typography level="h4" sx={{ color: 'text.primary', mb: 2 }}>
+          <Typography level="h4" sx={{  mb: 2 }}>
             Theme
           </Typography>
           <ThemeToggle />
         </Box>
         
         <Box>
-          <Typography level="h4" sx={{ color: 'text.primary', mb: 2 }}>
+          <Typography level="h4" sx={{ mb: 2 }}>
             Language
           </Typography>
           <FormControl sx={{ minWidth: 200 }}>
-            <FormLabel sx={{ color: 'text.primary' }}>Select Language</FormLabel>
+            <FormLabel>Select Language</FormLabel>
             <Select
               value={language}
               onChange={handleLanguageChange}
-              sx={{ bgcolor: 'background.surface' }}
             >
               <Option value="en">English</Option>
               <Option value="pt-BR">Português (Brasil)</Option>

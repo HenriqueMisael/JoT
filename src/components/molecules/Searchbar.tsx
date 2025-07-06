@@ -111,15 +111,6 @@ const Searchbar = () => {
             }
           },
         }}
-        sx={{
-          bgcolor: 'background.surface',
-          '& .MuiInput-input': {
-            color: 'text.primary',
-          },
-          '& .MuiInput-placeholder': {
-            color: 'text.secondary',
-          }
-        }}
       />
       
       {isOpen && filteredPages.length > 0 && (
@@ -130,9 +121,7 @@ const Searchbar = () => {
             left: 0,
             right: 0,
             zIndex: 1000,
-            bgcolor: 'background.surface',
             border: '1px solid',
-            borderColor: 'divider',
             borderRadius: 'sm',
             mt: 1,
             maxHeight: 300,
@@ -152,10 +141,10 @@ const Searchbar = () => {
                     p: 2,
                   }}
                 >
-                  <Typography level="body-sm" sx={{ fontWeight: 'bold', color: 'text.primary' }}>
+                  <Typography level="body-sm" sx={{ fontWeight: 'bold' }}>
                     {page.name}
                   </Typography>
-                  <Typography level="body-xs" sx={{ color: 'text.secondary' }}>
+                  <Typography level="body-xs">
                     {page.description}
                   </Typography>
                 </ListItemButton>
