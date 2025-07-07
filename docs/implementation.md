@@ -16,7 +16,8 @@ src/
 │       └── Navbar.tsx
 ├── pages/              # Complete pages
 │   ├── Home.tsx
-│   └── Preferences.tsx
+│   ├── Preferences.tsx
+│   └── JellyCollection.tsx   # Jelly Collection page
 ├── store.ts            # Zustand state management
 ├── i18n.ts             # Internationalization setup
 ├── main.tsx            # App entry point

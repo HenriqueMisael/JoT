@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 const pageTitles: Record<string, string> = {
   '/': 'Home',
   '/preferences': 'Preferences',
+  '/collections/jellies': 'Jelly Collection',
 };
 
 const Navbar = () => {

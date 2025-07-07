@@ -4,12 +4,15 @@ import { useLanguageStore } from '../store';
 import ThemeToggle from '../components/atoms/ThemeToggle';
 
 const Preferences = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const { language, setLanguage } = useLanguageStore();
 
-  const handleLanguageChange = (event: any, newValue: string | null) => {
+  const handleLanguageChange = (
+    event: React.MouseEvent<Element> | React.KeyboardEvent<Element> | React.FocusEvent<Element> | null,
+    newValue: 'en' | 'pt-BR' | 'fr-CA' | null
+  ) => {
     if (newValue) {
-      setLanguage(newValue as any);
+      setLanguage(newValue);
       i18n.changeLanguage(newValue);
     }
   };

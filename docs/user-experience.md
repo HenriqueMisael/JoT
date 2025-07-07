@@ -54,3 +54,4 @@ The application will have many pages, which will each have a URL associated with
 |---|---|---|
 |Home|Home page containing dashboard information|/|
 |[Preferences](pages/preferences.md)|Preference page containing basic user configurations|/preferences|
+|[Jelly Collection](pages/jelly-collection.md)|Page for managing the user's collection of Jellies|/collections/jellies|

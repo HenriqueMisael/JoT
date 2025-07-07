@@ -29,4 +29,6 @@ export const useLanguageStore = create<LanguageState>((set) => ({
     localStorage.setItem('language', language);
     set({ language });
   },
-})); 
+}));
+
+export { useJellyStore, type Jelly } from './store/jellyStore';
