@@ -15,23 +15,16 @@ const Navbar = () => {
   return (
     <Box
       component="nav"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        px: 2,
-        py: 1,
-        borderBottom: '1px solid',
-        minHeight: 56,
-      }}
+      className="flex items-center justify-between p-2 border-b"
+      sx={{borderColor: 'divider'}}
     >
-      <Typography level="h4" sx={{ minWidth: 120 }}>
+      <Typography className="flex-1" level="h4">
         {pageName}
       </Typography>
-      <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+      <Box className="flex-1 flex justify-center">
         <Searchbar />
       </Box>
-      <Box sx={{ minWidth: 120, display: 'flex', justifyContent: 'flex-end' }}>
+      <Box className="flex-1 flex justify-end">
         <ThemeToggle />
       </Box>
     </Box>

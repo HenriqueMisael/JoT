@@ -93,7 +93,7 @@ const Searchbar = () => {
   }, [query]);
 
   return (
-    <Box ref={containerRef} sx={{ position: 'relative', width: 320 }}>
+    <Box ref={containerRef} className="relative w-80">
       <Input
         placeholder="Search pages... (Ctrl+K)"
         value={query}
@@ -106,47 +106,34 @@ const Searchbar = () => {
         slotProps={{
           input: {
             ref: inputRef,
-            onBlur: () => {
-              console.log('foo bar')
-            }
           },
         }}
       />
       
       {isOpen && filteredPages.length > 0 && (
         <Box
-          sx={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            right: 0,
-            zIndex: 1000,
-            border: '1px solid',
-            borderRadius: 'sm',
-            mt: 1,
-            maxHeight: 300,
-            overflow: 'auto',
-          }}
+          className="absolute top-full left-0 right-0 z-1000 border-1 border-radius-sm mt-1 max-h-80 overflow-auto bg-background"
         >
           <List>
             {filteredPages.map((page, index) => (
-              <ListItem key={page.route} sx={{ p: 0 }}>
+              <ListItem key={page.route} className="p-0">
                 <ListItemButton
                   selected={index === selectedIndex}
                   aria-selected={index === selectedIndex}
                   onClick={() => selectPage(page)}
-                  sx={{
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    p: 2,
-                  }}
+                  className="flex p-2"
                 >
-                  <Typography level="body-sm" sx={{ fontWeight: 'bold' }}>
+                  <Box className="flex flex-col items-start p-2">
+                  <Typography level="body-sm" className="font-bold">
                     {page.name}
                   </Typography>
-                  <Typography level="body-xs">
+                  <Typography
+                    level="body-xs"
+                    className="truncate whitespace-nowrap overflow-hidden text-ellipsis"
+                  >
                     {page.description}
                   </Typography>
+                  </Box>
                 </ListItemButton>
               </ListItem>
             ))}

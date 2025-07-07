@@ -16,11 +16,11 @@ const Preferences = () => {
 
   return (
     <Box>
-      <Typography level="h2" className='mb-4'>
+      <Typography level="h2" sx={{mb:2}}>
         Preferences
       </Typography>
       
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <Box className="flex flex-col gap-3">
         <Box>
           <Typography level="h4" sx={{  mb: 2 }}>
             Theme
@@ -32,7 +32,7 @@ const Preferences = () => {
           <Typography level="h4" sx={{ mb: 2 }}>
             Language
           </Typography>
-          <FormControl sx={{ minWidth: 200 }}>
+          <FormControl className="min-w-3xs">
             <FormLabel>Select Language</FormLabel>
             <Select
               value={language}
