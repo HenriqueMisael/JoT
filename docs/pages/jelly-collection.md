@@ -19,6 +19,23 @@ Display, create, edit, and remove Jellies. Each Jelly is a custom entity with at
 - **Add Jelly**: Button to open the create modal.
 - **Edit Jelly**: Opens modal pre-filled with jelly data.
 - **Remove Jelly**: Prompts for confirmation before deletion.
+- **Jelly Naming**: Each jelly can be given a custom name during creation or editing. The name is displayed in the collection grid and in the modal.
+- **Keyboard Shortcuts**: The create/edit modal supports:
+  - **Ctrl+Enter** (⌃⏎): Confirm/save
+  - **Ctrl+Backspace** (⌃⌫): Cancel/close
+  - Shortcut tips are shown on buttons using atomic key components for visual clarity.
+- **Atomic Design**:
+  - Attribute dots are implemented as an atom component (`AttributeDots`).
+  - Card display in the modal and tooltips uses a molecule (`JellyCardDisplay`).
+  - Keyboard shortcut tips use atomic key components (e.g., `CtrlKey`, `EnterKey`).
+- **Card Tooltips**: In the collection grid, hovering a card shows a tooltip with the full card info (title, description, icons for damage/shield), matching the modal display.
+- **Add/Random Jelly**: Buttons are always visible, and a random jelly can be generated with valid attributes and a default name.
+
+## Implementation Notes
+
+- **State Management**: Zustand is used for all jelly state, including naming and random generation.
+- **Shortcuts**: All keyboard shortcuts are implemented using `react-hotkeys-hook` as per project standards, and are visually indicated using atomic key components.
+- **Atomic/Molecular Components**: Attribute dots, card display, and shortcut tips are all implemented as atomic/molecular components for reusability and consistency.
 
 ## Create/Edit Jelly Modal
 
