@@ -2,6 +2,7 @@ import { Input, List, ListItem, ListItemButton, Typography, Box } from '@mui/joy
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useHotkeys } from 'react-hotkeys-hook';
+import { CtrlKey, KKey } from '../atoms/ShortcutDecorator';
 
 interface Page {
   name: string;
@@ -19,6 +20,11 @@ const pages: Page[] = [
     name: 'Preferences',
     description: 'Preference page containing basic user configurations',
     route: '/preferences'
+  },
+  {
+    name: 'Jelly Collection',
+    description: "Page for managing the user's collection of Jellies",
+    route: '/collections/jellies'
   }
 ];
 
@@ -95,7 +101,7 @@ const Searchbar = () => {
   return (
     <Box ref={containerRef} className="relative w-80">
       <Input
-        placeholder="Search pages... (Ctrl+K)"
+        placeholder="Search pages..."
         value={query}
         onChange={(e) => {
           setQuery(e.target.value);
@@ -108,6 +114,7 @@ const Searchbar = () => {
             ref: inputRef,
           },
         }}
+        endDecorator={<><CtrlKey/><KKey/></>}
       />
       
       {isOpen && filteredPages.length > 0 && (
