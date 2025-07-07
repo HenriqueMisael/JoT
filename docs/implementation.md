@@ -193,3 +193,23 @@ export const useStore = create<State>((set) => ({
 5. **Performance**: Use proper React patterns (useCallback, useMemo when needed)
 6. **Testing**: Write tests for logic, not UI components
 7. **Documentation**: Keep documentation updated with implementation changes 
+
+## Styling Approach
+
+The project uses a hybrid styling approach:
+- **MUI Joy** is used for component-level styling, theming, and UI consistency.
+- **Tailwind CSS** is used for utility-first layout, spacing, and responsive design.
+
+**Usage Guidelines:**
+- Use MUI Joy props and theming for component appearance, color schemes, and interactive states.
+- Use Tailwind utility classes (via `className`) for layout, spacing, flex/grid, and responsive breakpoints.
+- Tailwind and MUI Joy can be combined on the same element when needed.
+
+**Example:**
+```tsx
+<Box className="min-h-screen p-8 flex flex-col items-center">
+  <Button variant="solid">Click me</Button>
+</Box>
+```
+
+This approach allows for rapid prototyping and fine-grained control over layout while maintaining a consistent look and feel with MUI Joy components. 
