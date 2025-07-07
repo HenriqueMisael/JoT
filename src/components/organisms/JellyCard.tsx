@@ -35,7 +35,9 @@ const JellyCard: React.FC<JellyCardProps> = ({ jelly, cards, onEdit, onRemove })
   return (
     <Card variant="outlined" className="relative group transition-shadow hover:shadow-lg">
       <Box className="mb-2">
-        <Typography level="h4">Jelly</Typography>
+        <Typography level="h4" className="truncate" title={jelly.name || 'Jelly'}>
+          {jelly.name ? jelly.name : 'Jelly'}
+        </Typography>
       </Box>
       <Box className="mb-2 flex items-center gap-4">
         <Box className="flex items-center gap-1">

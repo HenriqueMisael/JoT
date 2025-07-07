@@ -36,6 +36,7 @@ export const useLanguageStore = create<LanguageState>((set) => ({
 
 export type Jelly = {
   id: string;
+  name: string;
   body: number;
   reflexes: number;
   skill: number;
@@ -82,6 +83,7 @@ export const useJellyStore = create<JellyState>()(
         }
         const jelly = {
           id: Math.random().toString(36).slice(2, 10),
+          name: `Jelly #${state.jellies.length + 1}`,
           body,
           reflexes,
           skill,

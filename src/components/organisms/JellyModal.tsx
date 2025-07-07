@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Modal, ModalDialog, Button, Typography, Chip, Tooltip, Alert, Box } from '@mui/joy';
+import React, { useState, useEffect, useRef } from 'react';
+import { Modal, ModalDialog, Button, Typography, Chip, Tooltip, Alert, Box, Input, FormControl, FormLabel } from '@mui/joy';
 import CheckIcon from '@mui/icons-material/Check';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
@@ -11,6 +11,8 @@ import type { Card } from '../../data/cards';
 import { useJellyStore } from '../../store';
 import AttributeDots from '../atoms/AttributeDots';
 import JellyCardDisplay from '../molecules/JellyCardDisplay';
+import { useHotkeys } from 'react-hotkeys-hook';
+import { CtrlKey, EnterKey, BackspaceKey } from '../atoms/ShortcutDecorator';
 
 interface JellyModalProps {
   open: boolean;
@@ -27,19 +29,24 @@ const JellyModal: React.FC<JellyModalProps> = ({ open, onClose, editingJelly, ca
   const addJelly = useJellyStore(s => s.addJelly);
   const updateJelly = useJellyStore(s => s.updateJelly);
 
+  const [name, setName] = useState('');
   const [body, setBody] = useState(1);
   const [reflexes, setReflexes] = useState(1);
   const [skill, setSkill] = useState(1);
   const [selectedCards, setSelectedCards] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+  const dialogRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     if (editingJelly) {
+      setName(editingJelly.name || '');
       setBody(editingJelly.body);
       setReflexes(editingJelly.reflexes);
       setSkill(editingJelly.skill);
       setSelectedCards(editingJelly.cards);
     } else {
+      setName('');
       setBody(1);
       setReflexes(1);
       setSkill(1);
@@ -83,6 +90,7 @@ const JellyModal: React.FC<JellyModalProps> = ({ open, onClose, editingJelly, ca
     if (!validate()) return;
     const jelly: Jelly = {
       id: editingJelly?.id || Math.random().toString(36).slice(2, 10),
+      name: name.trim(),
       body,
       reflexes,
       skill,
@@ -96,12 +104,39 @@ const JellyModal: React.FC<JellyModalProps> = ({ open, onClose, editingJelly, ca
     onClose();
   };
 
+  useHotkeys(
+    'ctrl+enter',
+    (e) => {
+      if (open) {
+        e.preventDefault();
+        handleSave();
+      }
+    },
+    { enableOnFormTags: true },
+    [open, handleSave]
+  );
+  useHotkeys(
+    'ctrl+backspace',
+    (e) => {
+      if (open) {
+        e.preventDefault();
+        onClose();
+      }
+    },
+    { enableOnFormTags: true },
+    [open, onClose]
+  );
+
   return (
     <Modal open={open} onClose={onClose} aria-labelledby="jelly-modal-title">
-      <ModalDialog>
+      <ModalDialog ref={dialogRef}>
         <Typography id="jelly-modal-title" level="h4" className="mb-4">
           {editingJelly ? 'Edit Jelly' : 'Create Jelly'}
         </Typography>
+        <FormControl className="mb-4">
+          <FormLabel>Jelly Name</FormLabel>
+          <Input value={name} onChange={e => setName(e.target.value)} placeholder="Enter a name for your jelly" />
+        </FormControl>
         <Box className="mb-2">
           <Typography level="body-sm" className="flex items-center gap-1">
             <FitnessCenterIcon fontSize="small" /> Body
@@ -138,8 +173,12 @@ const JellyModal: React.FC<JellyModalProps> = ({ open, onClose, editingJelly, ca
         </Box>
         {error && <Alert color="danger" className="mb-4">{error}</Alert>}
         <Box className="flex justify-end gap-2 mt-4">
-          <Button variant="plain" onClick={onClose}>Cancel</Button>
-          <Button variant="solid" onClick={handleSave}>Save</Button>
+          <Button variant="plain" onClick={onClose} endDecorator={<><CtrlKey /><BackspaceKey /></>}>
+            Cancel
+          </Button>
+          <Button variant="solid" onClick={handleSave} endDecorator={<><CtrlKey /><EnterKey /></>}>
+            Save
+          </Button>
         </Box>
       </ModalDialog>
     </Modal>
