@@ -1,5 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* MUI Joy handles all styling through its theme system */

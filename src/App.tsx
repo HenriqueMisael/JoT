@@ -6,10 +6,10 @@ import Navbar from './components/organisms/Navbar';
 
 function App() {
   return (
-    <Box sx={{ minHeight: '100vh' }}>
+    <Box className="min-h-screen">
       <CssBaseline />
       <Navbar />
-      <Box component="main" sx={{ p: 4 }}>
+      <Box component="main" className="p-8">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/preferences" element={<Preferences />} />
