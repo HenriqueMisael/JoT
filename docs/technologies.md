@@ -14,6 +14,18 @@ It should use MUI Joy as the base UI framework since it's mainly a desktop appli
 - Proper color scheme integration using MUI Joy's built-in themes
 - CssBaseline for consistent styling
 
+### Tailwind CSS Integration
+
+Tailwind CSS is also integrated into the project to provide utility-first CSS classes for layout, spacing, and responsive design. Tailwind is used primarily for:
+- Utility classes for spacing, sizing, and layout
+- Responsive breakpoints
+- Quick prototyping and consistent utility-based styling
+
+**How Tailwind and MUI Joy work together:**
+- Use MUI Joy for component styling, theming, and UI consistency
+- Use Tailwind for layout, spacing, and responsive adjustments
+- Tailwind classes can be combined with MUI Joy components via the `className` prop
+
 ## Code
 
 It should use TypeScript in all the code, enforcing types and making good use of types and interfaces. It shouldn't hold back on taking advantage of the flexibility of types, but it should all be used as necessary. `any` and `unknown` shouldn't be used.

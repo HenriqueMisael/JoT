@@ -11,6 +11,7 @@
 - Mobile-first approach with responsive breakpoints
 - Proper spacing and layout adjustments for different screen sizes
 - Touch-friendly controls for mobile devices
+- **Tailwind CSS utility classes are used for responsive layout, spacing, and breakpoints, ensuring consistency and flexibility across devices.**
 
 ## Main navbar
 
