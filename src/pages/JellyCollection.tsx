@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Button, Typography, Box } from '@mui/joy';
 import AddIcon from '@mui/icons-material/Add';
 import CasinoIcon from '@mui/icons-material/Casino';
-import { useJellyStore } from '../store';
+import { useJellyStore, type Jelly } from '../store/jellyStore';
 import { PREDEFINED_CARDS } from '../data/cards';
 import JellyCard from '../components/organisms/JellyCard';
 import JellyModal from '../components/organisms/JellyModal';
-import type { Jelly } from '../store';
 
 const JellyCollection: React.FC = () => {
   const jellies = useJellyStore(state => state.jellies);

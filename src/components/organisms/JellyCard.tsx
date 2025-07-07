@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import PsychologyIcon from '@mui/icons-material/Psychology';
-import type { Jelly } from '../../store';
+import type { Jelly } from '../../store/jellyStore';
 import type { Card as JellyCardType } from '../../data/cards';
 import ShieldIcon from '@mui/icons-material/Shield';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
