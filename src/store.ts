@@ -1,7 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import type { Card } from './data/cards';
-import { PREDEFINED_CARDS } from './data/cards';
 
 interface AppState {
   example: string;

@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { PREDEFINED_CARDS } from '../data/cards';
 import { generateRandomJellyAttributesAndCards } from './jellyUtils';
 
 export type Jelly = {
@@ -20,9 +19,9 @@ interface JellyState {
   addRandomJelly: () => void;
 }
 
-export const useJellyStore = create<JellyState>()(
+const useJellyStore = create<JellyState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       jellies: [],
       addJelly: (jelly) => set(state => ({ jellies: [...state.jellies, jelly] })),
       updateJelly: (jelly) => set(state => ({
@@ -46,4 +45,6 @@ export const useJellyStore = create<JellyState>()(
       partialize: (state) => ({ jellies: state.jellies }),
     }
   )
-); 
+);
+
+export { useJellyStore }; 

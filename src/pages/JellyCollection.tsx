@@ -10,7 +10,6 @@ import JellyModal from '../components/organisms/JellyModal';
 const JellyCollection: React.FC = () => {
   const jellies = useJellyStore(state => state.jellies);
   const removeJelly = useJellyStore(state => state.removeJelly);
-  const addJelly = useJellyStore(state => state.addJelly);
   const addRandomJelly = useJellyStore(state => state.addRandomJelly);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingJelly, setEditingJelly] = useState<Jelly | null>(null);

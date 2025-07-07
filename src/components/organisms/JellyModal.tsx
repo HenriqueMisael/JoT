@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Modal, ModalDialog, Button, Typography, Chip, Tooltip, Alert, Box, Input, FormControl, FormLabel } from '@mui/joy';
-import CheckIcon from '@mui/icons-material/Check';
+import { Modal, ModalDialog, Button, Typography, Alert, Box, Input, FormControl, FormLabel } from '@mui/joy';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import PsychologyIcon from '@mui/icons-material/Psychology';
-import ShieldIcon from '@mui/icons-material/Shield';
-import FlashOnIcon from '@mui/icons-material/FlashOn';
 import { useJellyStore, type Jelly } from '../../store/jellyStore';
 import type { Card } from '../../data/cards';
 import AttributeDots from '../atoms/AttributeDots';
@@ -20,7 +17,6 @@ interface JellyModalProps {
   cards: Card[];
 }
 
-const MAX_ATTRIBUTE = 10;
 const MAX_TOTAL = 18;
 const CARDS_REQUIRED = 4;
 
@@ -55,14 +51,6 @@ const JellyModal: React.FC<JellyModalProps> = ({ open, onClose, editingJelly, ca
   }, [editingJelly, open]);
 
   const total = body + reflexes + skill;
-
-  const handleDotClick = (setter: (v: number) => void, value: number) => {
-    if (total - (body + reflexes + skill) + value <= MAX_TOTAL) {
-      setter(value);
-    } else if (value < (body + reflexes + skill)) {
-      setter(value);
-    }
-  };
 
   const handleCardToggle = (id: string) => {
     if (selectedCards.includes(id)) {
