@@ -19,6 +19,11 @@ const pages: Page[] = [
     name: 'Preferences',
     description: 'Preference page containing basic user configurations',
     route: '/preferences'
+  },
+  {
+    name: 'Jelly Collection',
+    description: "Page for managing the user's collection of Jellies",
+    route: '/collections/jellies'
   }
 ];
 
